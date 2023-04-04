@@ -1,0 +1,20 @@
+{
+  "uc": "pa",
+  "ects": 6.0,
+  "date-exam": null,
+  "students": [
+    {
+      "name": "Afonso",
+      "number": 92494,
+      "professor": {
+        "name": "Andre Santos",
+        "workingOnStrudel": true
+      }
+    },
+    {
+      "name": "Gustavo",
+      "number": 92888
+    },
+    "Hello! This is a string. :)"
+  ]
+}
