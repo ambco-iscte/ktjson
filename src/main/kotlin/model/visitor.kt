@@ -1,11 +1,14 @@
 package model
 
+/**
+ * Generic interface for any objects that accept JSON visitors.
+ */
 sealed interface IAcceptVisitors {
     fun accept(visitor: JSONVisitor)
 }
 
 /**
- * JSON object visitor.
+ * Generic JSON object visitor.
  */
 interface JSONVisitor {
     fun visit(obj: JSONObject): Boolean = true
@@ -23,7 +26,8 @@ interface JSONVisitor {
 }
 
 /**
- * Example visitor: collects all values of every property whose key equals the argument.
+ * Example visitor: collects all values of every property with a specific key.
+ * @property key The JSON property key.
  */
 class CollectByKey(private val key: String) : JSONVisitor {
     val collected: MutableList<JSONElement> = mutableListOf()
@@ -50,36 +54,4 @@ class ArrayValidator : JSONVisitor {
     }
 
     override fun visit(obj: JSONObject): Boolean = true
-}
-
-// Testing
-fun main() {
-    val json = JSONObject(listOf(
-        JSONProperty("uc", JSONString("pa")),
-        JSONProperty("ects", JSONNumber(6.0)),
-        JSONProperty("date-exam", Null),
-        JSONProperty("students", JSONArray(listOf(
-            JSONObject(listOf(
-                JSONProperty("name", JSONString("Afonso")),
-                JSONProperty("number", JSONNumber(92494)),
-                JSONProperty("professor", JSONObject(listOf(
-                    JSONProperty("name", JSONString("Andre Santos")),
-                    JSONProperty("workingOnStrudel", JSONBoolean(true))
-                )))
-            )),
-            JSONObject(listOf(
-                JSONProperty("name", JSONString("Gustavo")),
-                JSONProperty("number", JSONNumber(92888))
-            )),
-            JSONString("Hello! This is a string. :)") // Remove this property to make array-valid
-        )))
-    ))
-
-    val collector = CollectByKey("name")
-    json.accept(collector)
-    println(collector.collected.joinToString(", "))
-
-    val validator = ArrayValidator()
-    json.accept(validator)
-    println(validator.valid)
 }

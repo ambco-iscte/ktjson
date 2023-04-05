@@ -6,13 +6,13 @@ class TestSerialization {
 
     @Test
     fun testNull() {
-        assertEquals(Null, serialize(null))
+        assertEquals(Null, null.serialize())
     }
 
     @Test
     fun `Only Primitive and String Properties`() {
         data class Student(val name: String, val number: Int)
-        val serial = serialize(Student("Afonso", 92494))
+        val serial = Student("Afonso", 92494).serialize()
         println(serial)
         assertEquals(JSONObject(listOf(
             JSONProperty("name", JSONString("Afonso")),
@@ -23,7 +23,7 @@ class TestSerialization {
     @Test
     fun `With Collection Properties`() {
         data class Curriculum(val subjects: List<String>)
-        val serial = serialize(Curriculum(listOf("PA", "ELP")))
+        val serial = Curriculum(listOf("PA", "ELP")).serialize()
         println(serial)
         assertEquals(JSONObject(listOf(
             JSONProperty("subjects", JSONArray(listOf(
@@ -37,7 +37,7 @@ class TestSerialization {
     @Test
     fun `With Enumerator Properties`() {
         data class Student(val studentType: StudentType)
-        val serial = serialize(Student(StudentType.REGULAR))
+        val serial = Student(StudentType.REGULAR).serialize()
         println(serial)
         assertEquals(JSONObject(listOf(
             JSONProperty("studentType", JSONString("REGULAR"))
@@ -47,7 +47,7 @@ class TestSerialization {
     @Test
     fun `With Map Properties`() {
         data class Student(val grades: Map<String, Int>)
-        val serial = serialize(Student(mapOf("AED" to 20, "TC" to 20)))
+        val serial = Student(mapOf("AED" to 20, "TC" to 20)).serialize()
         println(serial)
         assertEquals(JSONObject(listOf(
             JSONProperty("grades", JSONObject(listOf(
@@ -61,7 +61,7 @@ class TestSerialization {
     fun `With Nested Object Parameters`() {
         data class CurricularUnit(val name: String, val ects: Int)
         data class Student(val name: String, val favourite: CurricularUnit)
-        val serial = serialize(Student("Afonso", CurricularUnit("PA", 6)))
+        val serial = Student("Afonso", CurricularUnit("PA", 6)).serialize()
         println(serial)
         assertEquals(JSONObject(listOf(
             JSONProperty("name", JSONString("Afonso")),
@@ -79,7 +79,7 @@ class TestSerialization {
             @DoNotSerialize val code: String,
             @Stringify val ects: Double
         )
-        val serial = serialize(CurricularUnit("PA", "M4310", 6.0))
+        val serial = CurricularUnit("PA", "M4310", 6.0).serialize()
         println(serial)
         assertEquals(JSONObject(listOf(
             JSONProperty("name", JSONString("PA")),
@@ -109,7 +109,7 @@ class TestSerialization {
             listOf("Kotlin", "Reflection", "Visitors")
         )
 
-        val serial = serialize(uc)
+        val serial = uc.serialize()
         print(serial)
 
         assertEquals(JSONObject(listOf(

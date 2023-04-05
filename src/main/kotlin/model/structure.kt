@@ -1,16 +1,27 @@
 package model
 
+/**
+ * Generic JSON element.
+ * @property owner The "owner" of this element. Useful for prettifying the print of JSON elements.
+ */
 sealed class JSONElement(internal var owner: JSONElement? = null): IAcceptVisitors {
     val depth: Int
         get() = 1 + (owner?.depth ?: -1) + (if (owner is JSONProperty) -1 else 0)
 }
 
+/**
+ * JSON object.
+ * @property properties A list of JSON properties, i.e. key-value pairs.
+ */
 data class JSONObject(val properties: List<JSONProperty>): JSONElement() {
     init {
         properties.forEach { it.owner = this }
     }
 
     companion object {
+        /**
+         * JSON object with no properties.
+         */
         val EMPTY: JSONObject = JSONObject(listOf())
     }
 
@@ -28,6 +39,11 @@ data class JSONObject(val properties: List<JSONProperty>): JSONElement() {
     }
 }
 
+/**
+ * JSON object property.
+ * @property key The name of the property.
+ * @property value The value of the property. Can be any JSON element.
+ */
 data class JSONProperty(val key: String, val value: JSONElement): JSONElement() {
     init {
         value.owner = this
@@ -41,6 +57,10 @@ data class JSONProperty(val key: String, val value: JSONElement): JSONElement() 
     }
 }
 
+/**
+ * JSON array. Can contain any JSON elements.
+ * @property elements A list of the JSON elements contained in the JSON array.
+ */
 data class JSONArray(val elements: List<JSONElement>): JSONElement() {
     init {
         elements.forEach { it.owner = this }
@@ -57,6 +77,10 @@ data class JSONArray(val elements: List<JSONElement>): JSONElement() {
 
 internal val preamble: (JSONElement) -> String = { d -> if (d.owner is JSONProperty) "" else "\t".repeat(d.depth) }
 
+/**
+ * JSON string.
+ * @property string The string held by this JSON element.
+ */
 data class JSONString(val string: String): JSONElement() {
     override fun toString(): String = preamble(this) + "\"$string\""
     override fun accept(visitor: JSONVisitor) {
@@ -64,6 +88,10 @@ data class JSONString(val string: String): JSONElement() {
     }
 }
 
+/**
+ * JSON number.
+ * @property number The number value held by this JSON element.
+ */
 data class JSONNumber(val number: Number): JSONElement() {
     override fun toString(): String = preamble(this) + number.toString()
     override fun accept(visitor: JSONVisitor) {
@@ -71,6 +99,10 @@ data class JSONNumber(val number: Number): JSONElement() {
     }
 }
 
+/**
+ * JSON boolean.
+ * @property boolean The boolean value held by this JSON element.
+ */
 data class JSONBoolean(val boolean: Boolean): JSONElement() {
     override fun toString(): String = preamble(this) + boolean.toString()
     override fun accept(visitor: JSONVisitor) {
@@ -78,34 +110,12 @@ data class JSONBoolean(val boolean: Boolean): JSONElement() {
     }
 }
 
+/**
+ * Null JSON element.
+ */
 object Null: JSONElement() {
     override fun toString(): String = preamble(this) + "null"
     override fun accept(visitor: JSONVisitor) {
         visitor.visit(this)
     }
-}
-
-// Testing
-fun main() {
-    val json = JSONObject(listOf(
-        JSONProperty("uc", JSONString("pa")),
-        JSONProperty("ects", JSONNumber(6.0)),
-        JSONProperty("date-exam", Null),
-        JSONProperty("students", JSONArray(listOf(
-            JSONObject(listOf(
-                JSONProperty("name", JSONString("Afonso")),
-                JSONProperty("number", JSONNumber(92494)),
-                JSONProperty("professor", JSONObject(listOf(
-                    JSONProperty("name", JSONString("Andre Santos")),
-                    JSONProperty("workingOnStrudel", JSONBoolean(true))
-                )))
-            )),
-            JSONObject(listOf(
-                JSONProperty("name", JSONString("Gustavo")),
-                JSONProperty("number", JSONNumber(92888))
-            )),
-            JSONString("Hello! This is a string. :)")
-        )))
-    ))
-    println(json)
 }

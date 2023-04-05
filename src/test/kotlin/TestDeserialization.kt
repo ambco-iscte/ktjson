@@ -1,7 +1,9 @@
+import dynamic.DeserializationException
 import dynamic.deserialize
 import dynamic.serialize
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class TestDeserialization {
 
@@ -9,14 +11,14 @@ class TestDeserialization {
     fun `Only Primitive and String Properties`() {
         data class Student(val name: String, val number: Int)
         val student = Student("Afonso", 92494)
-        assertEquals(student, Student::class.deserialize(serialize(student)))
+        assertEquals(student, Student::class.deserialize(student.serialize()))
     }
 
     @Test
     fun `With Collection Properties`() {
         data class Curriculum(val subjects: List<String>)
         val curriculum = Curriculum(listOf("PA", "ELP"))
-        assertEquals(curriculum, Curriculum::class.deserialize(serialize(curriculum)))
+        assertEquals(curriculum, Curriculum::class.deserialize(curriculum.serialize()))
     }
 
     enum class StudentType { REGULAR, INTERNATIONAL }
@@ -24,14 +26,14 @@ class TestDeserialization {
     fun `With Enumerator Properties`() {
         data class Student(val studentType: StudentType)
         val student = Student(StudentType.REGULAR)
-        assertEquals(student, Student::class.deserialize(serialize(student)))
+        assertEquals(student, Student::class.deserialize(student.serialize()))
     }
 
     @Test
     fun `With Map Properties`() {
         data class Student(val grades: Map<String, Int>)
         val student = Student(mapOf("AED" to 20, "TC" to 20))
-        assertEquals(student, Student::class.deserialize(serialize(student)))
+        assertEquals(student, Student::class.deserialize(student.serialize()))
     }
 
     @Test
@@ -39,7 +41,7 @@ class TestDeserialization {
         data class CurricularUnit(val name: String, val ects: Int)
         data class Student(val name: String, val favourite: CurricularUnit)
         val student = Student("Afonso", CurricularUnit("PA", 6))
-        assertEquals(student, Student::class.deserialize(serialize(student)))
+        assertEquals(student, Student::class.deserialize(student.serialize()))
     }
 
     @Test
@@ -64,6 +66,15 @@ class TestDeserialization {
             listOf("Kotlin", "Reflection", "Visitors")
         )
 
-        assertEquals(uc, CurricularUnit::class.deserialize(serialize(uc)))
+        assertEquals(uc, CurricularUnit::class.deserialize(uc.serialize()))
+    }
+
+    @Test
+    fun `Deserializing to Invalid Type`() {
+        data class CurricularUnit(val name: String, val ects: Int)
+        data class Student(val name: String, val number: Int)
+        assertFailsWith<DeserializationException> {
+            Student::class.deserialize(CurricularUnit("PA", 6).serialize())
+        }
     }
 }
