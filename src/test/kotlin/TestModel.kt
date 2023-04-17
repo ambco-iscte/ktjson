@@ -6,20 +6,20 @@ import kotlin.test.assertTrue
 
 class TestModel {
 
-    private val jsonWithEverything = JSONObject(listOf(
+    private val jsonWithEverything = JSONObject(mutableListOf(
         JSONProperty("uc", JSONString("pa")),
         JSONProperty("ects", JSONNumber(6.0)),
         JSONProperty("date-exam", Null),
-        JSONProperty("students", JSONArray(listOf(
-            JSONObject(listOf(
+        JSONProperty("students", JSONArray(mutableListOf(
+            JSONObject(mutableListOf(
                 JSONProperty("name", JSONString("Afonso")),
                 JSONProperty("number", JSONNumber(92494)),
-                JSONProperty("professor", JSONObject(listOf(
+                JSONProperty("professor", JSONObject(mutableListOf(
                     JSONProperty("name", JSONString("Andre Santos")),
                     JSONProperty("workingOnStrudel", JSONBoolean(true))
                 )))
             )),
-            JSONObject(listOf(
+            JSONObject(mutableListOf(
                 JSONProperty("name", JSONString("Gustavo")),
                 JSONProperty("number", JSONNumber(92888))
             ))
@@ -27,20 +27,20 @@ class TestModel {
         )
     ))
 
-    private val jsonInvalidArray = JSONObject(listOf(
+    private val jsonInvalidArray = JSONObject(mutableListOf(
         JSONProperty("uc", JSONString("pa")),
         JSONProperty("ects", JSONNumber(6.0)),
         JSONProperty("date-exam", Null),
-        JSONProperty("students", JSONArray(listOf(
-            JSONObject(listOf(
+        JSONProperty("students", JSONArray(mutableListOf(
+            JSONObject(mutableListOf(
                 JSONProperty("name", JSONString("Afonso")),
                 JSONProperty("number", JSONNumber(92494)),
-                JSONProperty("professor", JSONObject(listOf(
+                JSONProperty("professor", JSONObject(mutableListOf(
                     JSONProperty("name", JSONString("Andre Santos")),
                     JSONProperty("workingOnStrudel", JSONBoolean(true))
                 )))
             )),
-            JSONObject(listOf(
+            JSONObject(mutableListOf(
                 JSONProperty("name", JSONString("Gustavo")),
                 JSONProperty("number", JSONNumber(92888))
             )),
@@ -48,7 +48,7 @@ class TestModel {
         )))
     ))
 
-    private val emptyJson = JSONObject(listOf())
+    private val emptyJson = JSONObject(mutableListOf())
 
     @Test
     fun `Print JSON Model as String`() {

@@ -1,6 +1,10 @@
-import dynamic.*
+import dynamic.DoNotSerialize
+import dynamic.SerializeAs
+import dynamic.Stringify
+import dynamic.serialize
 import model.*
-import kotlin.test.*
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class TestSerialization {
 
@@ -14,7 +18,7 @@ class TestSerialization {
         data class Student(val name: String, val number: Int)
         val serial = Student("Afonso", 92494).serialize()
         println(serial)
-        assertEquals(JSONObject(listOf(
+        assertEquals(JSONObject(mutableListOf(
             JSONProperty("name", JSONString("Afonso")),
             JSONProperty("number", JSONNumber(92494))
         )), serial)
@@ -25,8 +29,8 @@ class TestSerialization {
         data class Curriculum(val subjects: List<String>)
         val serial = Curriculum(listOf("PA", "ELP")).serialize()
         println(serial)
-        assertEquals(JSONObject(listOf(
-            JSONProperty("subjects", JSONArray(listOf(
+        assertEquals(JSONObject(mutableListOf(
+            JSONProperty("subjects", JSONArray(mutableListOf(
                 JSONString("PA"),
                 JSONString("ELP")
             )))
@@ -39,7 +43,7 @@ class TestSerialization {
         data class Student(val studentType: StudentType)
         val serial = Student(StudentType.REGULAR).serialize()
         println(serial)
-        assertEquals(JSONObject(listOf(
+        assertEquals(JSONObject(mutableListOf(
             JSONProperty("studentType", JSONString("REGULAR"))
         )), serial)
     }
@@ -49,8 +53,8 @@ class TestSerialization {
         data class Student(val grades: Map<String, Int>)
         val serial = Student(mapOf("AED" to 20, "TC" to 20)).serialize()
         println(serial)
-        assertEquals(JSONObject(listOf(
-            JSONProperty("grades", JSONObject(listOf(
+        assertEquals(JSONObject(mutableListOf(
+            JSONProperty("grades", JSONObject(mutableListOf(
                 JSONProperty("AED", JSONNumber(20)),
                 JSONProperty("TC", JSONNumber(20))
             )))
@@ -63,9 +67,9 @@ class TestSerialization {
         data class Student(val name: String, val favourite: CurricularUnit)
         val serial = Student("Afonso", CurricularUnit("PA", 6)).serialize()
         println(serial)
-        assertEquals(JSONObject(listOf(
+        assertEquals(JSONObject(mutableListOf(
             JSONProperty("name", JSONString("Afonso")),
-            JSONProperty("favourite", JSONObject(listOf(
+            JSONProperty("favourite", JSONObject(mutableListOf(
                 JSONProperty("name", JSONString("PA")),
                 JSONProperty("ects", JSONNumber(6))
             )))
@@ -81,7 +85,7 @@ class TestSerialization {
         )
         val serial = CurricularUnit("PA", "M4310", 6.0).serialize()
         println(serial)
-        assertEquals(JSONObject(listOf(
+        assertEquals(JSONObject(mutableListOf(
             JSONProperty("name", JSONString("PA")),
             JSONProperty("ects", JSONString("6.0"))
         )), serial)
@@ -112,30 +116,30 @@ class TestSerialization {
         val serial = uc.serialize()
         print(serial)
 
-        assertEquals(JSONObject(listOf(
+        assertEquals(JSONObject(mutableListOf(
             JSONProperty("name", JSONString("PA")),
-            JSONProperty("coordinator", JSONObject(listOf(
+            JSONProperty("coordinator", JSONObject(mutableListOf(
                 JSONProperty("name", JSONString("André Santos")),
-                JSONProperty("areasOfResearch", JSONArray(listOf(
+                JSONProperty("areasOfResearch", JSONArray(mutableListOf(
                     JSONString("Pedagogy"),
                     JSONString("Programming"),
                     JSONString("Strudel"),
                     JSONString("Weird Kotlin Things")
                 )))
             ))),
-            JSONProperty("professors", JSONArray(listOf(
-                JSONObject(listOf(
+            JSONProperty("professors", JSONArray(mutableListOf(
+                JSONObject(mutableListOf(
                     JSONProperty("name", JSONString("Probably ChatGPT")),
-                    JSONProperty("areasOfResearch", JSONArray(listOf(JSONString("Everything"))))
+                    JSONProperty("areasOfResearch", JSONArray(mutableListOf(JSONString("Everything"))))
                 ))
             ))),
-            JSONProperty("students", JSONArray(listOf(
-                JSONObject(listOf(
+            JSONProperty("students", JSONArray(mutableListOf(
+                JSONObject(mutableListOf(
                     JSONProperty("name", JSONString("Afonso")),
                     JSONProperty("number", JSONString("92494"))
                 ))
             ))),
-            JSONProperty("program", JSONArray(listOf(
+            JSONProperty("program", JSONArray(mutableListOf(
                 JSONString("Kotlin"),
                 JSONString("Reflection"),
                 JSONString("Visitors")

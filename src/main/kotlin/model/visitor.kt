@@ -8,7 +8,7 @@ sealed interface IAcceptVisitors {
 }
 
 /**
- * Generic JSON object visitor.
+ * Generic [JSONObject] visitor.
  */
 interface JSONVisitor {
     fun visit(obj: JSONObject): Boolean = true
@@ -26,8 +26,8 @@ interface JSONVisitor {
 }
 
 /**
- * Example visitor: collects all values of every property with a specific key.
- * @property key The JSON property key.
+ * Example visitor: collects all values of every [JSONProperty] with the specific [key].
+ * @property key The [JSONProperty] key.
  */
 class CollectByKey(private val key: String) : JSONVisitor {
     val collected: MutableList<JSONElement> = mutableListOf()
@@ -43,7 +43,7 @@ class CollectByKey(private val key: String) : JSONVisitor {
 }
 
 /**
- * Example visitor: validates that all arrays in the JSON object are type-uniform.
+ * Example visitor: validates that all [JSONArray]s in the [JSONObject] are type-uniform.
  */
 class ArrayValidator : JSONVisitor {
     var valid: Boolean = true

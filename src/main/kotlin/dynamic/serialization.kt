@@ -10,22 +10,20 @@ import kotlin.reflect.full.isSubclassOf
 import kotlin.reflect.jvm.jvmErasure
 
 /**
- * Represents an exception that occurred when deserializing a JSON element.
+ * Represents an exception that occurred when deserializing a [JSONElement].
  * @property message The exception message.
  */
 data class DeserializationException(override val message: String?) : Exception(message)
 
 /**
- * Serializes this object to an abstract JSON element.
+ * Serializes this object to an abstract [JSONElement].
  * @return The instance or value, serialized as a JSON element.
  * @see serializeJSON
  */
 fun Any?.serialize(): JSONElement = serializeJSON(this)
 
 /**
- * Serializes an instance of any data class, primitive type, or collection type, to an abstract JSON element.
- * @param instance The object to serialize.
- * @return The instance or value, serialized as a JSON element.
+ * Serializes an [instance] of any data class, primitive type, or collection type, to an abstract [JSONElement].
  */
 private fun serializeJSON(instance: Any?): JSONElement {
     when (instance) {
@@ -33,32 +31,31 @@ private fun serializeJSON(instance: Any?): JSONElement {
         is String -> return JSONString(instance)
         is Number -> return JSONNumber(instance)
         is Boolean -> return JSONBoolean(instance)
-        is Collection<*> -> return JSONArray(instance.map { serializeJSON(it) })
+        is Collection<*> -> return JSONArray(instance.map { serializeJSON(it) }.toMutableList())
         is Enum<*> -> return serializeJSON(instance.name)
         is Map<*, *> -> return JSONObject(instance.entries.map {
                 entry -> JSONProperty(entry.key.toString(), serializeJSON(entry.value))
-        })
+        }.toMutableList())
     }
     if (instance!!::class.isData) {
         val fields = instance::class.dataClassFields
         return JSONObject(fields.filter { it.isSerializable }.map {
             JSONProperty(it.annotatedName, serializeJSON(it.annotatedValue(instance)))
-        })
+        }.toMutableList())
     }
     return JSONObject.EMPTY
 }
 
 /**
- * Deserializes a JSON element to this class.
- * @param json The JSON element to deserialize.
- * @return A new instance of this class corresponding to the deserialized JSON element.
+ * Deserializes a JSON element [json] to this class. Returns an object of type [Any] corresponding to the deserialized object.
+ * @param json The [JSONElement] to deserialize.
  * @see deserializeJSON
  */
 fun KClass<*>.deserialize(json: JSONElement): Any? = deserializeJSON(json, createType())
 
 /**
- * Deserializes a JSON element to the provided type.
- * @param json The JSON element to deserialize.
+ * Deserializes a JSON element [json] to the provided [type].
+ * @param json The [JSONElement] to deserialize.
  * @param type The type to deserialize the element to.
  * @return A new instance corresponding to the deserialized JSON element.
  */

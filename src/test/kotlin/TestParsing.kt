@@ -12,20 +12,20 @@ class TestParsing {
         val lexer = JSONLexer(CharStreams.fromFileName("example.json"))
         val parser = JSONParser(CommonTokenStream(lexer))
 
-        assertEquals(JSONObject(listOf(
+        assertEquals(JSONObject(mutableListOf(
             JSONProperty("uc", JSONString("pa")),
             JSONProperty("ects", JSONNumber(6.0)),
             JSONProperty("date-exam", Null),
-            JSONProperty("students", JSONArray(listOf(
-                JSONObject(listOf(
+            JSONProperty("students", JSONArray(mutableListOf(
+                JSONObject(mutableListOf(
                     JSONProperty("name", JSONString("Afonso")),
                     JSONProperty("number", JSONNumber(92494)),
-                    JSONProperty("professor", JSONObject(listOf(
+                    JSONProperty("professor", JSONObject(mutableListOf(
                         JSONProperty("name", JSONString("Andre Santos")),
                         JSONProperty("workingOnStrudel", JSONBoolean(true))
                     )))
                 )),
-                JSONObject(listOf(
+                JSONObject(mutableListOf(
                     JSONProperty("name", JSONString("Gustavo")),
                     JSONProperty("number", JSONNumber(92888))
                 )),
