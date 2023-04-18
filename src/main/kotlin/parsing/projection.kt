@@ -1,6 +1,6 @@
 package parsing
 
-import JSONParser
+import antlr.JSONParser
 import model.*
 
 /**

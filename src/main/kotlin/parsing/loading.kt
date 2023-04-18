@@ -1,7 +1,7 @@
 package parsing
 
-import JSONLexer
-import JSONParser
+import antlr.JSONLexer
+import antlr.JSONParser
 import model.JSONElement
 import org.antlr.v4.runtime.CharStreams
 import org.antlr.v4.runtime.CommonTokenStream

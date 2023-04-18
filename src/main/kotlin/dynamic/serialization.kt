@@ -18,7 +18,7 @@ data class DeserializationException(override val message: String?) : Exception(m
 /**
  * Serializes this object to an abstract [JSONElement].
  * @return The instance or value, serialized as a JSON element.
- * @see serializeJSON
+ * @see [serializeJSON]
  */
 fun Any?.serialize(): JSONElement = serializeJSON(this)
 
@@ -49,7 +49,7 @@ private fun serializeJSON(instance: Any?): JSONElement {
 /**
  * Deserializes a JSON element [json] to this class. Returns an object of type [Any] corresponding to the deserialized object.
  * @param json The [JSONElement] to deserialize.
- * @see deserializeJSON
+ * @see [deserializeJSON]
  */
 fun KClass<*>.deserialize(json: JSONElement): Any? = deserializeJSON(json, createType())
 

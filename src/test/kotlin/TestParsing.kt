@@ -1,3 +1,5 @@
+import antlr.JSONLexer
+import antlr.JSONParser
 import model.*
 import org.antlr.v4.runtime.CharStreams
 import org.antlr.v4.runtime.CommonTokenStream
