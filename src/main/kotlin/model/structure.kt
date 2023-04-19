@@ -40,6 +40,12 @@ data class JSONObject(val properties: MutableList<JSONProperty>): JSONElement() 
     fun addProperty(key: String, value: JSONElement) = properties.add(JSONProperty(key, value))
 
     /**
+     * Returns the [JSONElement] value of this object's [key] [JSONProperty].
+     * @param key The [JSONProperty] key.
+     */
+    fun getProperty(key: String): JSONElement = properties.first { it.key == key }.value
+
+    /**
      * Sets a [JSONProperty] on this object. If the property with the given [key] is not present, it is added.
      * @param key The [JSONProperty] key.
      * @param value The [JSONProperty] value.
@@ -132,11 +138,23 @@ data class JSONArray(val elements: MutableList<JSONElement>): JSONElement() {
      * @param index A valid array index.
      * @param element A [JSONElement].
      */
-    fun set(index: Int, element: JSONElement){
+    fun set(index: Int, element: JSONElement) {
         if (element is JSONProperty)
             throw IllegalStateException("Cannot add JSON properties to an array!")
         elements[index] = element
     }
+
+    /**
+     * Removes and returns the [JSONElement] from the position [index].
+     * @param index The index to remove from.
+     */
+    fun removeAt(index: Int): JSONElement = elements.removeAt(index)
+
+    /**
+     * Removes a [JSONElement] from the array.
+     * @param element The element to remove.
+     */
+    fun remove(element: JSONElement) = elements.remove(element)
 
     override fun toString(): String = "[\n${elements.joinToString(",\n")}\n${"\t".repeat(depth)}]"
 
