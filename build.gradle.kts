@@ -39,7 +39,9 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<DokkaTask>().configureEach {
     pluginConfiguration<DokkaBase, DokkaBaseConfiguration> {
-        footerMessage = "(c) 2023 Afonso Manuel Barral Caniço"
+        footerMessage = "Afonso Manuel Barral Caniço, 2023"
+        customStyleSheets = listOf(file("resources/logo-styles.css"))
+        customAssets = listOf(file("resources/logo-icon.png"))
     }
 
     // Suppress ANTLR-generated Java files

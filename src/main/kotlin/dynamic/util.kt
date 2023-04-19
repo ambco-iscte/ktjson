@@ -20,7 +20,7 @@ internal val KClass<*>.dataClassFields: List<KProperty<*>>
  * @author André L. Santos
  * @see <p>Advanced Programming course materials on Reflection</p>
  */
-val KClassifier?.isEnum: Boolean
+internal val KClassifier?.isEnum: Boolean
     get() = this is KClass<*> && this.isSubclassOf(Enum::class)
 
 /**

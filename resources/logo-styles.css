@@ -1,0 +1,20 @@
+/*
+ * All Margins and sizes are custom for the ktor-logo.png file.
+ * You may need to modify it and find what works best for your case.
+ */
+.library-name a {
+    position: relative;
+    margin-left: 55px;
+}
+
+.library-name a::before {
+    content: '';
+    background-image: url('../images/logo-icon.png');
+    background-repeat: no-repeat;
+    background-size: 58px 33px;
+    position: absolute;
+    width: 58px;
+    height: 33px;
+    top: -6px;
+    left: -62px;
+}

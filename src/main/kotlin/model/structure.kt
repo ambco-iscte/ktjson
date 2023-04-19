@@ -5,7 +5,7 @@ package model
  * @property owner The "owner" of this element. Useful for prettifying the print of JSON elements.
  */
 sealed class JSONElement(internal var owner: JSONElement? = null): IAcceptVisitors {
-    val depth: Int
+    internal val depth: Int
         get() = 1 + (owner?.depth ?: -1) + (if (owner is JSONProperty) -1 else 0)
 }
 

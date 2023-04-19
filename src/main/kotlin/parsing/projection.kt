@@ -14,31 +14,31 @@ data class JSONParseException(override val message: String, val context: JSONPar
  * Projects a parsed JSON document to its abstract [JSONElement].
  * @return The [JSONObject] corresponding to this parsed JSON document context.
  */
-fun JSONParser.JsonContext.toAbstractTree(): JSONObject = `object`().toAbstractTree()
+internal fun JSONParser.JsonContext.toAbstractTree(): JSONObject = `object`().toAbstractTree()
 
 /**
  * Projects a parsed JSON Object to its abstract [JSONObject].
  * @return The [JSONObject] corresponding to this parsed JSON object context.
  */
-fun JSONParser.ObjectContext.toAbstractTree(): JSONObject = JSONObject(property().map { it.toAbstractTree() }.toMutableList())
+internal fun JSONParser.ObjectContext.toAbstractTree(): JSONObject = JSONObject(property().map { it.toAbstractTree() }.toMutableList())
 
 /**
  * Projects a parsed JSON Property to its abstract [JSONProperty].
  * @return The [JSONProperty] corresponding to this parsed JSON property context.
  */
-fun JSONParser.PropertyContext.toAbstractTree(): JSONProperty = JSONProperty(STRING().text.removeSurrounding("\""), element().toAbstractTree())
+internal fun JSONParser.PropertyContext.toAbstractTree(): JSONProperty = JSONProperty(STRING().text.removeSurrounding("\""), element().toAbstractTree())
 
 /**
  * Projects a parsed JSON Array to its abstract [JSONArray].
  * @return The [JSONArray] corresponding to this parsed JSON array context.
  */
-fun JSONParser.ArrayContext.toAbstractTree(): JSONArray = JSONArray(element().map { it.toAbstractTree() }.toMutableList())
+internal fun JSONParser.ArrayContext.toAbstractTree(): JSONArray = JSONArray(element().map { it.toAbstractTree() }.toMutableList())
 
 /**
  * Projects a parsed JSON Element to its abstract [JSONElement].
  * @return The [JSONElement] corresponding to this parsed JSON element context.
  */
-fun JSONParser.ElementContext.toAbstractTree(): JSONElement =
+internal fun JSONParser.ElementContext.toAbstractTree(): JSONElement =
     if (STRING() != null) JSONString(STRING().text.removeSurrounding("\""))
     else if (NUMBER() != null) JSONNumber(NUMBER().text.toIntOrNull() ?: NUMBER().text.toDouble())
     else if (BOOLEAN() != null) JSONBoolean(BOOLEAN().text.toBoolean())
