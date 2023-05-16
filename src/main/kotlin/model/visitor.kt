@@ -1,9 +1,11 @@
 package model
 
+import model.elements.*
+
 /**
  * Generic interface for any objects that accept JSON visitors.
  */
-sealed interface IAcceptVisitors {
+interface IAcceptVisitors {
     fun accept(visitor: JSONVisitor)
 }
 
@@ -45,11 +47,11 @@ class CollectByKey(private val key: String) : JSONVisitor {
 /**
  * Example visitor: validates that all [JSONArray]s in the [JSONObject] are type-uniform.
  */
-class ArrayValidator : JSONVisitor {
+class ArrayTypeValidator : JSONVisitor {
     var valid: Boolean = true
 
     override fun visit(array: JSONArray): Boolean {
-        valid = array.elements.map { it::class }.toSet().size == 1
+        valid = array.getElements().map { it::class }.toSet().size == 1
         return true
     }
 

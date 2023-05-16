@@ -1,14 +1,23 @@
 grammar JSON;
 
-json: object EOF;
+document: composite EOF;
 
-object: '{' NEWLINE? (property ((',' NEWLINE?) property)*)? NEWLINE? '}';
+composite: '{' NEWLINE? (property ((',' NEWLINE?) property)*)? NEWLINE? '}';
 
 property: STRING ':' + element;
 
-element: STRING | NUMBER | BOOLEAN | NULL | array | object;
+element:
+    value=primitive #literal
+    | array=collection #array
+    | object=composite #object;
 
-array: '[' NEWLINE? (element ((',' NEWLINE?) element)*)? NEWLINE? ']';
+primitive:
+    string=STRING #string
+    | number=NUMBER #number
+    | boolean=BOOLEAN #boolean
+    | NULL #null;
+
+collection: '[' NEWLINE? (element ((',' NEWLINE?) element)*)? NEWLINE? ']';
 
 STRING: '"' (.*?) '"';
 
@@ -20,4 +29,4 @@ NULL: 'null';
 
 NEWLINE: '\n' | '\r' | '\r\n';
 
-SPACE: ' '+ -> skip;
+WHITESPACE: (' ' | '\t')+ -> skip;

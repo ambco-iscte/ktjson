@@ -2,7 +2,7 @@ import dynamic.DoNotSerialize
 import dynamic.SerializeAs
 import dynamic.Stringify
 import dynamic.serialize
-import model.*
+import model.elements.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -10,7 +10,7 @@ class TestSerialization {
 
     @Test
     fun testNull() {
-        assertEquals(Null, null.serialize())
+        assertEquals(Null(), null.serialize())
     }
 
     @Test

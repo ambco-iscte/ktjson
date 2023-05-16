@@ -23,19 +23,20 @@ This library was developed as the final project for an [Advanced Programming](ht
 - [x] **(Extra)** Parsing of JSON-formatted text files to abstract JSON models
 - [x] **(Extra)** Deserialization of abstract JSON models to Kotlin object instances
 
-## Phase 2
-Coming soon! (Hopefully.)
-
-<br>
-
-# Installation
-Coming soon!
+## Phase 2 - Model, View, Controller
+- [x] Listeners for JSON element types implemented in Phase 1
+- [x] Commands to support JSON element actions implemented in Phase 1
+- [x] Graphical User Interface implementing the MVC pattern to edit JSON objects
+  - [x] Displaying JSON elements
+  - [x] Updating the value of properties in a JSON object
+  - [x] Adding and removing properties from JSON objects
+  - [x] Adding and removing elements in a JSON array
 
 <br>
 
 # Examples
 The following examples showcase the basic functionality of **kt**json's serialization and deserialization
-capabilities.
+capabilities. Check out [the documentation](https://ambco-iscte.github.io/ktjson/) for a more in-depth look!
 
 ## Serialization
 ```kotlin
@@ -107,6 +108,39 @@ fun deserializationExample() {
 }
 ```
 
+## Parsing
+```kotlin
+import model.JSONElement
+
+fun parsingExample() {
+    val json = JSONElement.parse("myJsonFile.json") // That's it (it's super easy)
+}
+```
+
+## Manipulation
+```kotlin
+import model.*
+
+fun manipulationExample() {
+    // Create an empty JSON object
+    val obj = JSONObject.empty()
+  
+    // Add some properties
+    obj.addProperty("name", JSONString("ktjson"))
+    obj.addProperty("language", JSONString("ktjson"))
+    obj.addProperty("author", JSONString("ambco"))
+  
+    // Replace a property
+    obj.setProperty("author", JSONString("Afonso Caniço"))
+  
+    // Remove a property
+    obj.removeProperty("author")
+  
+    // Does the object have a property with key "name"?
+    println(obj.hasProperty("name"))
+}
+```
+
 <br>
 
 # Credit
@@ -115,7 +149,7 @@ Full credit for the basic specification of the library's requirements goes to Pr
 [André L. Santos](https://andre-santos-pt.github.io/), Assistant Professor at Iscte-IUL and coordinator of the course
 this library was developed for. The original specifications for each phase of the course's final project can be found here:
 - [Phase 1 - Abstract Model, Reflection](https://andre-santos-pt.github.io/projetojson/primeirafase)
-- More phases coming soon!
+- [Phase 2 - Model, View, Controller](https://andre-santos-pt.github.io/projetojson/segundaparte)
 
 Credit for all the code present in this repository goes to 
 [Afonso Caniço](https://ciencia.iscte-iul.pt/authors/afonso-canico/cv), author and sole contributor to the project

@@ -6,6 +6,8 @@ import org.junit.platform.suite.api.Suite
     TestModel::class,
     TestSerialization::class,
     TestParsing::class,
-    TestDeserialization::class
+    TestDeserialization::class,
+    TestListeners::class,
+    TestCommands::class
 )
 class RunAllTests

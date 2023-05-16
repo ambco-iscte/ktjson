@@ -19,7 +19,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.antlr:antlr4:4.11.1")
+    implementation("org.antlr:antlr4:4.12.0")
     implementation("org.junit.platform:junit-platform-suite-engine:1.9.2")
 }
 

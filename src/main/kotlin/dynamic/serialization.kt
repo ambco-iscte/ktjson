@@ -1,6 +1,6 @@
 package dynamic
 
-import model.*
+import model.elements.*
 import kotlin.reflect.KClass
 import kotlin.reflect.KParameter
 import kotlin.reflect.KType
@@ -27,7 +27,7 @@ fun Any?.serialize(): JSONElement = serializeJSON(this)
  */
 private fun serializeJSON(instance: Any?): JSONElement {
     when (instance) {
-        null -> return Null
+        null -> return Null()
         is String -> return JSONString(instance)
         is Number -> return JSONNumber(instance)
         is Boolean -> return JSONBoolean(instance)
@@ -43,7 +43,7 @@ private fun serializeJSON(instance: Any?): JSONElement {
             JSONProperty(it.annotatedName, serializeJSON(it.annotatedValue(instance)))
         }.toMutableList())
     }
-    return JSONObject.EMPTY
+    return JSONObject.empty()
 }
 
 /**
@@ -79,7 +79,7 @@ private fun deserializeJSON(json: JSONElement, type: KType): Any? {
                     if (clazz.isSubclassOf(Collection::class)) {
                         if (type.arguments.isEmpty() || type.arguments[0].type == null)
                             throw DeserializationException("Collection type ${type.fullName} has non-existent or null type parameters")
-                        args[params[params.keys.first()]!!] = json.elements.map {
+                        args[params[params.keys.first()]!!] = json.getElements().map {
                             // Deserialize each element to the element type of the Collection
                             deserializeJSON(it, type.arguments[0].type!!) // Collection<type.arguments[0].type>
                         }
@@ -90,12 +90,12 @@ private fun deserializeJSON(json: JSONElement, type: KType): Any? {
                     if (clazz.isSubclassOf(Map::class)) {
                         if (type.arguments.size < 2 || type.arguments[1].type == null)
                             throw DeserializationException("Map type ${type.fullName} has non-existent or null value type parameter")
-                        args[params[params.keys.first()]!!] = json.properties.map {
+                        args[params[params.keys.first()]!!] = json.getProperties().map {
                             // Map each key to its corresponding value deserialized to the Map's value type
                             it.key to deserializeJSON(it.value, type.arguments[1].type!!) // Map<K, type.arguments[1].type>
                         }
                     }
-                    else json.properties.forEach { // Deserialize each property to its corresponding parameter's type
+                    else json.getProperties().forEach { // Deserialize each property to its corresponding parameter's type
                         if (!params.containsKey(it.key))
                             throw DeserializationException("Primary constructor of type ${type.fullName} has no parameter ${it.key}")
                         val param = params[it.key]!!
