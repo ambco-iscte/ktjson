@@ -389,6 +389,7 @@ $dokka.location:mvc.editor/JSONEditorListener/onArrayElementReplaced/#model.elem
 $dokka.location:mvc.editor/JSONEditorListener/onObjectPropertyAdded/#model.elements.JSONObject#kotlin.String#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-object-property-added.html
 $dokka.location:mvc.editor/JSONEditorListener/onObjectPropertyChanged/#model.elements.JSONObject#kotlin.String#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-object-property-changed.html
 $dokka.location:mvc.editor/JSONEditorListener/onObjectPropertyRemoved/#model.elements.JSONObject#model.elements.JSONProperty/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-object-property-removed.html
+$dokka.location:mvc.editor/JSONEditorListener/onRedo/#/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-redo.html
 $dokka.location:mvc.editor/JSONEditorListener/onUndo/#/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-undo.html
 $dokka.location:mvc////PointingToDeclaration/ktjson/mvc/index.html
 $dokka.location:mvc//main/#/PointingToDeclaration/ktjson/mvc/main.html

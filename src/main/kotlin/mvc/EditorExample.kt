@@ -30,11 +30,18 @@ fun main() {
 
     // Command stack
     val commands = Stack<Command>()
+    val undone = Stack<Command>() // Allows for easy re-do
 
     // Auxiliary function to execute and store commands
     fun execute(command: Command) {
         command.execute()
         commands.push(command)
+    }
+
+    // Auxiliary function to undo and store undone command
+    fun undo(command: Command) {
+        command.undo()
+        undone.push(command)
     }
 
     // Add view listener that actually modifies the model through commands
@@ -64,7 +71,11 @@ fun main() {
             execute(ReplaceArrayElement(array, old, new))
 
         override fun onUndo() {
-            if (!commands.isEmpty()) commands.pop().undo()
+            if (!commands.isEmpty()) undo(commands.pop())
+        }
+
+        override fun onRedo() {
+            if (!undone.isEmpty()) execute(undone.pop())
         }
     })
 

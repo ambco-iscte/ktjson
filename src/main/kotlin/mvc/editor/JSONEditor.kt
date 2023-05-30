@@ -34,6 +34,7 @@ class JSONEditor(private val root: JSONObject) {
         defaultCloseOperation = JFrame.EXIT_ON_CLOSE
         layout = GridLayout(0, 2)
         size = Dimension(600, 600)
+        iconImage = ImageIcon("resources/letters-kt.png").image
 
         val left = JPanel().apply {
             layout = BoxLayout(this, BoxLayout.Y_AXIS)
@@ -41,8 +42,16 @@ class JSONEditor(private val root: JSONObject) {
                 BorderFactory.createLineBorder(Color.BLACK, 1, false),
                 BorderFactory.createEmptyBorder(20, 20, 20, 20)
             )
-            add(JButton("Undo").apply {
-                addActionListener { onUndo() }
+            add(JPanel().apply {
+                layout = GridLayout(1, 3)
+                maximumSize = Dimension(maximumSize.width, 30)
+                add(JButton("Undo").apply {
+                    addActionListener { onUndo() }
+                })
+                add(Box.createRigidArea(Dimension(10, 0)))
+                add(JButton("Redo").apply {
+                    addActionListener { onRedo() }
+                })
             })
             add(Box.createRigidArea(Dimension(0, 10)))
             add(JSONObjectPanel(root, this@JSONEditor).asScrollable())
@@ -78,6 +87,11 @@ class JSONEditor(private val root: JSONObject) {
 
     private fun onUndo() {
         listeners.forEach { it.onUndo() }
+        refresh()
+    }
+
+    private fun onRedo() {
+        listeners.forEach{ it.onRedo() }
         refresh()
     }
 

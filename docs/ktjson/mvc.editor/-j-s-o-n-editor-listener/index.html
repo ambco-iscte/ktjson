@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>JSONEditorListener</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+<link href="../../../images/logo-icon.png">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>ktjson</span>
+            </a>
+    </div>
+    <div>
+1.0    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":dokkaHtml/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="ktjson::mvc.editor/JSONEditorListener///PointingToDeclaration//769193423">
+  <div class="breadcrumbs"><a href="../../../index.html">ktjson</a><span class="delimiter">/</span><a href="../index.html">mvc.editor</a><span class="delimiter">/</span><span class="current">JSONEditorListener</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>JSONEditor</span><wbr></wbr><span><span>Listener</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">JSONEditorListener</a></div><p class="paragraph">Listens for actions performed on <a href="../-j-s-o-n-editor/index.html">JSONEditor</a>s.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-407987131%2FFunctions%2F769193423" anchor-label="onArrayElementAdded" id="-407987131%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-array-element-added.html"><span>on</span><wbr></wbr><span>Array</span><wbr></wbr><span>Element</span><wbr></wbr><span><span>Added</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-407987131%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-array-element-added.html"><span class="token function">onArrayElementAdded</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">array<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-array/index.html">JSONArray</a><span class="token punctuation">, </span></span><span class="parameter ">element<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-element/index.html">JSONElement</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Called when the <a href="../-j-s-o-n-editor/index.html">JSONEditor</a> is used to add a <a href="../../model.elements/-j-s-o-n-element/index.html">JSONElement</a> to a <a href="../../model.elements/-j-s-o-n-array/index.html">JSONArray</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-121697755%2FFunctions%2F769193423" anchor-label="onArrayElementRemoved" id="-121697755%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-array-element-removed.html"><span>on</span><wbr></wbr><span>Array</span><wbr></wbr><span>Element</span><wbr></wbr><span><span>Removed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-121697755%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-array-element-removed.html"><span class="token function">onArrayElementRemoved</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">array<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-array/index.html">JSONArray</a><span class="token punctuation">, </span></span><span class="parameter ">element<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-element/index.html">JSONElement</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Called when the <a href="../-j-s-o-n-editor/index.html">JSONEditor</a> is used to remove a <a href="../../model.elements/-j-s-o-n-element/index.html">JSONElement</a> from a <a href="../../model.elements/-j-s-o-n-array/index.html">JSONArray</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="729187796%2FFunctions%2F769193423" anchor-label="onArrayElementReplaced" id="729187796%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-array-element-replaced.html"><span>on</span><wbr></wbr><span>Array</span><wbr></wbr><span>Element</span><wbr></wbr><span><span>Replaced</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="729187796%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-array-element-replaced.html"><span class="token function">onArrayElementReplaced</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">array<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-array/index.html">JSONArray</a><span class="token punctuation">, </span></span><span class="parameter ">old<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-element/index.html">JSONElement</a><span class="token punctuation">, </span></span><span class="parameter ">new<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-element/index.html">JSONElement</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Called when the <a href="../-j-s-o-n-editor/index.html">JSONEditor</a> is used to replace a <a href="../../model.elements/-j-s-o-n-element/index.html">JSONElement</a> in a <a href="../../model.elements/-j-s-o-n-array/index.html">JSONArray</a> with a new element.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1664160585%2FFunctions%2F769193423" anchor-label="onObjectPropertyAdded" id="-1664160585%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-object-property-added.html"><span>on</span><wbr></wbr><span>Object</span><wbr></wbr><span>Property</span><wbr></wbr><span><span>Added</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1664160585%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-object-property-added.html"><span class="token function">onObjectPropertyAdded</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">obj<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-object/index.html">JSONObject</a><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">value<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-element/index.html">JSONElement</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Called when the <a href="../-j-s-o-n-editor/index.html">JSONEditor</a> is used to add a <a href="../../model.elements/-j-s-o-n-property/index.html">JSONProperty</a> to a <a href="../../model.elements/-j-s-o-n-object/index.html">JSONObject</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1264600003%2FFunctions%2F769193423" anchor-label="onObjectPropertyChanged" id="1264600003%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-object-property-changed.html"><span>on</span><wbr></wbr><span>Object</span><wbr></wbr><span>Property</span><wbr></wbr><span><span>Changed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1264600003%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-object-property-changed.html"><span class="token function">onObjectPropertyChanged</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">obj<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-object/index.html">JSONObject</a><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">value<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-element/index.html">JSONElement</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Called when the <a href="../-j-s-o-n-editor/index.html">JSONEditor</a> is used to update the value of a <a href="../../model.elements/-j-s-o-n-object/index.html">JSONObject</a>'s <a href="../../model.elements/-j-s-o-n-property/index.html">JSONProperty</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-31777739%2FFunctions%2F769193423" anchor-label="onObjectPropertyRemoved" id="-31777739%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-object-property-removed.html"><span>on</span><wbr></wbr><span>Object</span><wbr></wbr><span>Property</span><wbr></wbr><span><span>Removed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-31777739%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-object-property-removed.html"><span class="token function">onObjectPropertyRemoved</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">obj<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-object/index.html">JSONObject</a><span class="token punctuation">, </span></span><span class="parameter ">property<span class="token operator">: </span><a href="../../model.elements/-j-s-o-n-property/index.html">JSONProperty</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Called when the <a href="../-j-s-o-n-editor/index.html">JSONEditor</a> is used to remove a <a href="../../model.elements/-j-s-o-n-property/index.html">JSONProperty</a> from a <a href="../../model.elements/-j-s-o-n-object/index.html">JSONObject</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-939417880%2FFunctions%2F769193423" anchor-label="onRedo" id="-939417880%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-redo.html"><span>on</span><wbr></wbr><span><span>Redo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-939417880%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-redo.html"><span class="token function">onRedo</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Called when the Redo button is pressed on the <a href="../-j-s-o-n-editor/index.html">JSONEditor</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1152741694%2FFunctions%2F769193423" anchor-label="onUndo" id="-1152741694%2FFunctions%2F769193423" data-filterable-set=":dokkaHtml/main"></a>
+          <div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-undo.html"><span>on</span><wbr></wbr><span><span>Undo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1152741694%2FFunctions%2F769193423"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-undo.html"><span class="token function">onUndo</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">Called when the Undo button is pressed on the <a href="../-j-s-o-n-editor/index.html">JSONEditor</a>.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>Afonso Manuel Barral Caniço, 2023</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

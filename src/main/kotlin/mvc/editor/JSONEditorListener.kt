@@ -15,6 +15,11 @@ interface JSONEditorListener {
     fun onUndo() { }
 
     /**
+     * Called when the Redo button is pressed on the [JSONEditor].
+     */
+    fun onRedo() { }
+
+    /**
      * Called when the [JSONEditor] is used to remove a [JSONProperty] from a [JSONObject].
      * @param obj The object from which the property was removed.
      * @param property The property that was removed.
