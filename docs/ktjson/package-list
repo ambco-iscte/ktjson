@@ -376,21 +376,22 @@ $dokka.location:mvc.commands/UpdateObjectProperty///PointingToDeclaration/ktjso
 $dokka.location:mvc.commands/UpdateObjectProperty/UpdateObjectProperty/#model.elements.JSONObject#kotlin.String#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc.commands/-update-object-property/-update-object-property.html
 $dokka.location:mvc.commands/UpdateObjectProperty/execute/#/PointingToDeclaration/ktjson/mvc.commands/-update-object-property/execute.html
 $dokka.location:mvc.commands/UpdateObjectProperty/undo/#/PointingToDeclaration/ktjson/mvc.commands/-update-object-property/undo.html
+$dokka.location:mvc.editor////PointingToDeclaration/ktjson/mvc.editor/index.html
+$dokka.location:mvc.editor/JSONEditor///PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor/index.html
+$dokka.location:mvc.editor/JSONEditor/JSONEditor/#model.elements.JSONObject/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor/-j-s-o-n-editor.html
+$dokka.location:mvc.editor/JSONEditor/addListener/#mvc.editor.JSONEditorListener/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor/add-listener.html
+$dokka.location:mvc.editor/JSONEditor/open/#/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor/open.html
+$dokka.location:mvc.editor/JSONEditor/removeListener/#mvc.editor.JSONEditorListener/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor/remove-listener.html
+$dokka.location:mvc.editor/JSONEditorListener///PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/index.html
+$dokka.location:mvc.editor/JSONEditorListener/onArrayElementAdded/#model.elements.JSONArray#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-array-element-added.html
+$dokka.location:mvc.editor/JSONEditorListener/onArrayElementRemoved/#model.elements.JSONArray#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-array-element-removed.html
+$dokka.location:mvc.editor/JSONEditorListener/onArrayElementReplaced/#model.elements.JSONArray#model.elements.JSONElement#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-array-element-replaced.html
+$dokka.location:mvc.editor/JSONEditorListener/onObjectPropertyAdded/#model.elements.JSONObject#kotlin.String#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-object-property-added.html
+$dokka.location:mvc.editor/JSONEditorListener/onObjectPropertyChanged/#model.elements.JSONObject#kotlin.String#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-object-property-changed.html
+$dokka.location:mvc.editor/JSONEditorListener/onObjectPropertyRemoved/#model.elements.JSONObject#model.elements.JSONProperty/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-object-property-removed.html
+$dokka.location:mvc.editor/JSONEditorListener/onUndo/#/PointingToDeclaration/ktjson/mvc.editor/-j-s-o-n-editor-listener/on-undo.html
 $dokka.location:mvc////PointingToDeclaration/ktjson/mvc/index.html
 $dokka.location:mvc//main/#/PointingToDeclaration/ktjson/mvc/main.html
-$dokka.location:mvc/JSONEditor///PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor/index.html
-$dokka.location:mvc/JSONEditor/JSONEditor/#model.elements.JSONObject/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor/-j-s-o-n-editor.html
-$dokka.location:mvc/JSONEditor/addListener/#mvc.JSONEditorListener/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor/add-listener.html
-$dokka.location:mvc/JSONEditor/open/#/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor/open.html
-$dokka.location:mvc/JSONEditor/removeListener/#mvc.JSONEditorListener/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor/remove-listener.html
-$dokka.location:mvc/JSONEditorListener///PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor-listener/index.html
-$dokka.location:mvc/JSONEditorListener/onArrayElementAdded/#model.elements.JSONArray#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor-listener/on-array-element-added.html
-$dokka.location:mvc/JSONEditorListener/onArrayElementRemoved/#model.elements.JSONArray#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor-listener/on-array-element-removed.html
-$dokka.location:mvc/JSONEditorListener/onArrayElementReplaced/#model.elements.JSONArray#model.elements.JSONElement#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor-listener/on-array-element-replaced.html
-$dokka.location:mvc/JSONEditorListener/onObjectPropertyAdded/#model.elements.JSONObject#kotlin.String#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor-listener/on-object-property-added.html
-$dokka.location:mvc/JSONEditorListener/onObjectPropertyChanged/#model.elements.JSONObject#kotlin.String#model.elements.JSONElement/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor-listener/on-object-property-changed.html
-$dokka.location:mvc/JSONEditorListener/onObjectPropertyRemoved/#model.elements.JSONObject#model.elements.JSONProperty/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor-listener/on-object-property-removed.html
-$dokka.location:mvc/JSONEditorListener/onUndo/#/PointingToDeclaration/ktjson/mvc/-j-s-o-n-editor-listener/on-undo.html
 $dokka.location:parsing////PointingToDeclaration/ktjson/parsing/index.html
 $dokka.location:parsing/JSONParseException///PointingToDeclaration/ktjson/parsing/-j-s-o-n-parse-exception/index.html
 $dokka.location:parsing/JSONParseException/JSONParseException/#kotlin.String#org.antlr.v4.runtime.ParserRuleContext/PointingToDeclaration/ktjson/parsing/-j-s-o-n-parse-exception/-j-s-o-n-parse-exception.html
@@ -402,5 +403,6 @@ model.elements
 model.listeners
 mvc
 mvc.commands
+mvc.editor
 parsing
 

@@ -8,6 +8,7 @@ import mvc.components.JSONArrayPanel
 import mvc.components.JSONObjectPanel
 import mvc.components.JSONPropertyPanel
 import mvc.components.PrimitiveJSONElementPanel
+import mvc.editor.JSONEditor
 import java.awt.Color
 import java.awt.Component
 import java.awt.Dimension

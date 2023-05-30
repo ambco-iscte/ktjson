@@ -2,8 +2,8 @@ package mvc.components
 
 import model.elements.JSONBoolean
 import model.elements.JSONElement
-import mvc.JSONEditor
 import mvc.components.tooltips.JSONEditorTooltip
+import mvc.editor.JSONEditor
 import java.awt.Component
 import java.awt.Dimension
 import java.awt.GridLayout

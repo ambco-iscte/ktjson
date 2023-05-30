@@ -2,7 +2,7 @@ package mvc.components.tooltips
 
 import model.elements.JSONObject
 import model.elements.JSONProperty
-import mvc.JSONEditor
+import mvc.editor.JSONEditor
 import javax.swing.JMenuItem
 
 // Tooltip shown when a JSONPropertyPanel is right-clicked.

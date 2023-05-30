@@ -3,7 +3,7 @@ package mvc.components.tooltips
 import model.elements.JSONArray
 import model.elements.JSONObject
 import model.elements.Null
-import mvc.JSONEditor
+import mvc.editor.JSONEditor
 import javax.swing.JMenuItem
 
 // Tooltip shown when a JSONArrayPanel is right-clicked.

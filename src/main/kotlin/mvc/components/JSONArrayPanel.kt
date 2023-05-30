@@ -3,8 +3,8 @@ package mvc.components
 import model.elements.JSONArray
 import model.elements.JSONElement
 import model.listeners.JSONArrayListener
-import mvc.JSONEditor
 import mvc.components.tooltips.JSONArrayTooltip
+import mvc.editor.JSONEditor
 import mvc.swingComponentFromJSONElement
 import java.awt.Color
 import java.awt.Dimension

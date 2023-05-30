@@ -1,8 +1,8 @@
 package mvc.components
 
 import model.elements.JSONProperty
-import mvc.JSONEditor
 import mvc.components.tooltips.JSONPropertyTooltip
+import mvc.editor.JSONEditor
 import mvc.swingComponentFromJSONElement
 import java.awt.Color
 import java.awt.Dimension

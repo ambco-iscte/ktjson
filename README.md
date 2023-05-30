@@ -110,10 +110,12 @@ fun deserializationExample() {
 
 ## Parsing
 ```kotlin
-import model.JSONElement
+import model.*
 
+// This is it (it's super easy)
 fun parsingExample() {
-    val json = JSONElement.parse("myJsonFile.json") // That's it (it's super easy)
+    val json: JSONObject = JSONElement.parse("myJsonFile.json") // Parse a whole file
+    val bool: JSONBoolean = JSONElement.parseLiteral("true") // Parse a literal
 }
 ```
 
@@ -127,7 +129,7 @@ fun manipulationExample() {
   
     // Add some properties
     obj.addProperty("name", JSONString("ktjson"))
-    obj.addProperty("language", JSONString("ktjson"))
+    obj.addProperty("language", JSONString("kotlin"))
     obj.addProperty("author", JSONString("ambco"))
   
     // Replace a property
@@ -140,6 +142,22 @@ fun manipulationExample() {
     println(obj.hasProperty("name"))
 }
 ```
+
+<br>
+
+# Using the Editor
+**kt**json includes a built-in GUI that allows for dynamically editing JSON objects. By using the built-in GUI, you can:
+- Add, change, and remove object properties;
+- Add, change, and remove array elements;
+- See your changes in real-time in the GUI, both in the object structure and in typical JSON text syntax.
+
+![Editor Screenshot](resources/editor-example.png)
+
+The editor includes functionality to allow for listening for changes in the GUI elements and to execute all the JSON
+manipulation actions as undo-able commands. 
+
+A full example on how to make use of the editor's functionalities can be found in
+[EditorExample.kt](src/main/kotlin/mvc/EditorExample.kt).
 
 <br>
 

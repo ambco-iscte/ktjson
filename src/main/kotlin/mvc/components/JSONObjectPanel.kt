@@ -3,8 +3,8 @@ package mvc.components
 import model.elements.JSONObject
 import model.elements.JSONProperty
 import model.listeners.JSONObjectListener
-import mvc.JSONEditor
 import mvc.components.tooltips.JSONObjectTooltip
+import mvc.editor.JSONEditor
 import java.awt.Color
 import java.awt.event.MouseAdapter
 import java.awt.event.MouseEvent
