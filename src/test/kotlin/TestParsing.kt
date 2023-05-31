@@ -4,6 +4,8 @@ import org.antlr.v4.runtime.CommonTokenStream
 import parsing.toAbstractTree
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import JSONLexer
+import JSONParser
 
 class TestParsing {
 
