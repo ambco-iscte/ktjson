@@ -39,6 +39,7 @@ The following examples showcase the basic functionality of **kt**json's serializ
 capabilities. Check out [the documentation](https://ambco-iscte.github.io/ktjson/) for a more in-depth look!
 
 ## Serialization
+More in-depth serialization examples can be found [here](src/test/kotlin/TestSerialization.kt).
 ```kotlin
 import dynamic.*
 import model.*
@@ -74,6 +75,7 @@ fun serializationExample() {
 ```
 
 ## Deserialization
+More in-depth deserialization examples can be found [here](src/test/kotlin/TestDeserialization.kt).
 ```kotlin
 import dynamic.deserialize
 import dynamic.serialize
@@ -109,6 +111,7 @@ fun deserializationExample() {
 ```
 
 ## Parsing
+More in-depth parsing examples can be found [here](src/test/kotlin/TestParsing.kt).
 ```kotlin
 import model.*
 
@@ -120,6 +123,7 @@ fun parsingExample() {
 ```
 
 ## Manipulation
+More in-depth manipulation examples can be found [here](src/test/kotlin/TestModel.kt).
 ```kotlin
 import model.*
 
@@ -140,6 +144,89 @@ fun manipulationExample() {
   
     // Does the object have a property with key "name"?
     println(obj.hasProperty("name"))
+}
+```
+
+## Visitors
+More in-depth visitor examples can be found [here](src/test/kotlin/TestModel.kt).
+```kotlin
+import model.*
+import model.elements.*
+
+// Example visitor: collect all JSON properties that have the same key
+class CollectByKey(private val key: String) : JSONVisitor {
+    val collected: MutableList<JSONElement> = mutableListOf()
+  
+    // Override visit() methods for the types of elements you want to run
+    // custom code on
+    override fun visit(property: JSONProperty) {
+      if (property.key == key)
+        collected.add(property.value)
+    }
+  
+    // Composite elements (arrays and objects) return True or False depending on
+    // whether their "children" (elements or properties) should be visited
+    override fun visit(array: JSONArray): Boolean = true
+    override fun visit(obj: JSONObject): Boolean = true
+}
+
+// Example: load a JSON file and collect all object properties that have key "id"
+fun visitorsExample() {
+    val collector = CollectByKey("id")
+    JSONElement.parse("").accept(collector) // Run the visitor through the object
+    println(collector.collected) // Print the list of collected keys
+}
+```
+
+## Observers / Listeners
+More in-depth manipulation examples can be found [here](src/test/kotlin/TestListeners.kt).
+```kotlin
+import model.elements.*
+import model.listeners.JSONArrayListener
+import model.listeners.JSONObjectListener
+
+// Example: count the number of properties added to, removed from, and updated on an object
+fun objectListenerExample() {
+    val obj = JSONObject.empty()
+  
+    var added = 0
+    var removed = 0
+    var updated = 0
+  
+    // Attach a listener to the object
+    obj.addListener(object : JSONObjectListener {
+        // Override the functions of the actions you want to listen to
+        override fun onPropertyAdded(property: JSONProperty) { added++ }
+        override fun onPropertyRemoved(property: JSONProperty) { removed++ }
+        override fun onPropertyUpdated(old: JSONProperty, new: JSONProperty) { updated++ }
+    })
+  
+    // Add, remove, and update some properties (see above) ...
+  
+    println("Added: $added")
+    println("Removed: $removed")
+    println("Updated: $updated")
+}
+
+// Example: count the number of elements added to, removed from, and set on an array
+fun arrayListenerExample() {
+    val array = JSONArray(mutableListOf())
+  
+    var added = 0
+    var removed = 0
+    var set = 0
+  
+    // Attach a listener to the array
+    array.addListener(object : JSONArrayListener {
+        // Override the functions of the actions you want to listen to
+        override fun onElementAdded(element: JSONElement) { added++ }
+        override fun onElementRemoved(index: Int, element: JSONElement) { removed++ }
+        override fun onElementSet(index: Int, element: JSONElement) { set++ }
+    })
+  
+    println("Added: $added")
+    println("Removed: $removed")
+    println("Set: $set")
 }
 ```
 
