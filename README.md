@@ -13,6 +13,7 @@ from JSON representations.
 
 This library was developed as the final project for an [Advanced Programming](https://fenix.iscte-iul.pt/disciplinas/m4310/2022-2023/2-semestre) course as part of the 
 [Master's (MSc) in Computer Engineering](https://www.iscte-iul.pt/course/12/master-msc-in-computer-engineering) programme at [Iscte-IUL](https://www.iscte-iul.pt/).
+- Grade: 20 (out of 20)
 <br>
 
 # Features
